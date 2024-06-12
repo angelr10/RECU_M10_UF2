@@ -1,6 +1,6 @@
 import psycopg2
 def conectar():
-    conn = cursor.connect(
+    conn = psycopg2.connect(
         database="postgres",
         user="postgres",
         password="angel1",
@@ -9,3 +9,4 @@ def conectar():
     )
     cur = conn.cursor()
     print(cur)
+    return conn,cur
