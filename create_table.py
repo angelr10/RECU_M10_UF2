@@ -1,6 +1,6 @@
 import connectar
 
-def crearTabla(accion):
+def crearTabla():
     sql = """
         CREATE TABLE ejemplo01(
             campo01 INT PRIMARY KEY,
@@ -10,12 +10,8 @@ def crearTabla(accion):
             campo05 BIGINT NOT NULL
         );
     """
-    ejecucion = connectar.conectar()
-    ejecucion.execute(sql)
-
-    #Dependiendo de lo que pase por 
-    #parametro realizaremos la consulta a la tabla creada
-
-    
-
-    ejecucion.commit()
+    conn,cur = connectar.conectar()
+    cur.execute(sql)
+    cur.commit()
+    conn.close()
+crearTabla()
